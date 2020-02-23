@@ -12,17 +12,17 @@ function CompanyProfile(props) {
      * Well we get it as "props". The user of this component will
      * pass the value for these two variables.
      */
-    const stockTicker = ''; //✏️ Instead of empty string we want to get this value from props
-    const companyProfileInfo = {}; //✏️ Instead of empty object we want to get this value from props
+    //const stockTicker = ''; //✏️ Instead of empty string we want to get this value from props
+    //const companyProfileInfo = {}; //✏️ Instead of empty object we want to get this value from props
     return (
         <div>
-            <div>Profile of: {stockTicker}</div>
+            <div>Profile of: {props.stockTicker}</div>
             <hr />
             <div>
                 {
-                    Object.keys(companyProfileInfo)
+                    Object.keys(props.companyProfileInfo)
                         .map((info, index) => {
-                            return <div key={index}>{info} : {companyProfileInfo[info]}</div>
+                            return <div key={index}>{info} : {props.companyProfileInfo[info]}</div>
                         })
                 }
             </div>
@@ -48,7 +48,7 @@ function FBCompanyProfile() {
      * we need to pass `stockTicker` and `companyProfileInfo`
      * */
     return (
-        <CompanyProfile />
+        <CompanyProfile stockTicker={stockTicker} companyProfileInfo={companyProfileInfo}/>
     )
 }
 

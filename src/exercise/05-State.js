@@ -16,7 +16,9 @@ class Counter extends Component {
          * Initialize a state here with initial value of counter set to 0
          * this.state = { counter: defaultValue }
          */
-        this.state = {};
+        this.state = {
+            counter: 0
+        };
 
         /**
          * 💡 
@@ -43,6 +45,9 @@ class Counter extends Component {
          *              return newState 
          *      });         
          */
+        this.setState(oldState => {
+            return {counter: oldState.counter + 1}
+        });
     }
 
     /**
