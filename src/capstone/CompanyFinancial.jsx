@@ -47,6 +47,7 @@ class CompanyFinancial extends Component {
          * that will fetch the data from the given API
          * You just need to invoke it here
          */
+        this.fetchCompanyFinancial();
     }
 
     /* 
@@ -55,7 +56,7 @@ class CompanyFinancial extends Component {
     * after the component is updated. Remember the component will be updated
     * every time either the props changes or the state changes for this component
     */
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
     /**
      * ✏️ 
      * You need to call the fetchCompanyFinancial method to fetch the 
@@ -74,7 +75,11 @@ class CompanyFinancial extends Component {
      *     //Fetch data here only if the current props is not same as previous props
      *  }
      */
+        if (this.props.stockTicker !== prevProps.stockTicker){
+            this.fetchCompanyFinancial();
+        }
     }
+
 
     /**
      * 💡 
@@ -149,7 +154,9 @@ class CompanyFinancial extends Component {
          * Either ways you are telling ErrorMsg to display the div with the
          * error message only when the `erroMsg` state is not empty
          */
-        const ErrorMsg = null;
+        const ErrorMsg =  
+            !isEmpty(this.props.errorMsg) ? 
+            <div>{this.state.errorMsg}</div> : null;
 
         /**
          * 💡 
