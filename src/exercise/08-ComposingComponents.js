@@ -21,6 +21,7 @@ class Card extends Component {
                          * Use renderHeader props here to render header content
                          */
                     }
+                    {this.props.renderHeader()}
                 </div>
                 <div style={{ backgroundColor: '#9676b3'}}>
                     {
@@ -29,6 +30,7 @@ class Card extends Component {
                          * Use renderBody props here to render body content
                          */
                     }
+                    {this.props.renderBody()}
                 </div>
                 <div style={{ backgroundColor: '#d4ce83'}}>
                     {
@@ -37,6 +39,7 @@ class Card extends Component {
                          * Use renderFooter props here to render footer content
                          */
                     }
+                    {this.props.renderFooter()}
                 </div>
             </div>
         )
@@ -56,7 +59,11 @@ class CardUser extends Component {
          *          renderHeader={() => <div>Header</div>}
          */
         return (
-            <Card />
+            <Card
+                renderHeader={() => <div>Header</div>}
+                renderBody={() => <div>Body</div>}
+                renderFooter={() => <div>Footer</div>}
+            />
         )
     }
 }
