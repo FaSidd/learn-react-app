@@ -66,6 +66,9 @@ class Counter extends Component {
          *              return newState 
          *      });
          */
+        this.setState(oldState => {
+            return {counter: oldState.counter - 1}
+        });
     }
 
     render() {
